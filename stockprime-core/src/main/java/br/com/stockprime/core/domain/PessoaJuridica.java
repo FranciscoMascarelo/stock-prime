@@ -16,5 +16,6 @@ import lombok.ToString;
 @Entity
 public class PessoaJuridica extends Pessoa {
 	private static final long serialVersionUID = 1L;
+	private String nomeRazaoSocial;
 	private String cnpj;
 }
