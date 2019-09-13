@@ -16,5 +16,5 @@ import lombok.ToString;
 @Entity
 public class PessoaFisica extends Pessoa {
 	private static final long serialVersionUID = 1L;
-	private String cpf;
+	private Integer idade;
 }

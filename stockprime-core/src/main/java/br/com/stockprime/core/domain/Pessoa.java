@@ -41,5 +41,8 @@ public class Pessoa extends PersistentEntity{
 	
 	@OneToMany(mappedBy = "pessoa")
 	private List<Contato> contatos = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "pessoa")
+	private List<Documento> Documentos = new ArrayList<>();
 
 }
