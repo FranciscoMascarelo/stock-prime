@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import br.com.stockprime.core.domain.enums.CepEstado;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,5 +33,10 @@ public class Endereco extends PersistentEntity{
 	
 	@ManyToMany(mappedBy = "enderecos")
 	private List<Pessoa> pessoas = new ArrayList<>();
+	
+	//TODO @Hiago pesquisar sobre tabela de cep dos correios, verifica se tem api.
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cep_localidade_id", nullable = false)
+	private CepLocalidade cepLocalidade;
 
 }

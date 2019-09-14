@@ -47,8 +47,7 @@ public class PessoaFisica extends Pessoa {
     @JoinColumn(name = "profissao_id")
     private Profissao profissao;
 
-    //TODO @Hiago pesquisar sobre tabela de cep dos correios, verifica se tem api.
-    private CepLocalidade cepLocalidade;
+    
     
     public void setSexo(Sexo sexo) {
     	this.sexo = sexo.getCod();

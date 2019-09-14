@@ -1,9 +1,13 @@
 package br.com.stockprime.core.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import br.com.stockprime.core.domain.enums.CepEstado;
 import lombok.AllArgsConstructor;
@@ -31,6 +35,9 @@ public class CepLocalidade extends PersistentEntity{
     private String cepLocalidade;
 
     private Integer codigoIbge;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cepLocalidade")
+    private Set<Endereco> endereco = new HashSet<Endereco>();
     
 //    private Set<CepBairro> cepBairros = new HashSet<CepBairro>(0);
 //    
