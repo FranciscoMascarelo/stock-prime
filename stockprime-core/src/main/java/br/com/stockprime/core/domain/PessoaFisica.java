@@ -1,7 +1,14 @@
 package br.com.stockprime.core.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
+import br.com.stockprime.core.domain.enums.Escolaridade;
+import br.com.stockprime.core.domain.enums.EstadoCivil;
+import br.com.stockprime.core.domain.enums.GrupoSanguineo;
+import br.com.stockprime.core.domain.enums.Sexo;
+import br.com.stockprime.core.domain.enums.TipoDeficiencia;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,5 +23,65 @@ import lombok.ToString;
 @Entity
 public class PessoaFisica extends Pessoa {
 	private static final long serialVersionUID = 1L;
-	private Integer idade;
+	
+    private Date dataNascimento;
+
+    private String numeroCpf;
+
+    private Integer sexo;
+
+    private Integer tipoDeficiencia;
+
+    private Integer estadoCivil;
+
+    private Integer grupoSanguineo;
+    
+    private Integer escolaridade;
+    
+    private String possuiDeficiencia;
+
+    private Profissao profissao;
+
+    //TODO @Hiago pesquisar sobre tabela de cep dos correios, verifica se tem api.
+    private CepLocalidade cepLocalidade;
+    
+    public void setSexo(Sexo sexo) {
+    	this.sexo = sexo.getCod();
+    }
+    
+    public Sexo getSexo() {
+    	return Sexo.toEnum(sexo);
+    }
+    
+    public void setTipoDeficiencia(TipoDeficiencia tipoDeficiencia) {
+    	this.sexo = tipoDeficiencia.getCod();
+    }
+    
+    public TipoDeficiencia getTipoDeficiencia() {
+    	return TipoDeficiencia.toEnum(tipoDeficiencia);
+    }
+    
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
+    	this.estadoCivil = estadoCivil.getCod();
+    }
+    
+    public EstadoCivil getEstadoCivil() {
+    	return EstadoCivil.toEnum(estadoCivil);
+    }
+    
+    public void setGrupoSanguineo(GrupoSanguineo grupoSanguineo) {
+    	this.grupoSanguineo = grupoSanguineo.getCod();
+    }
+    
+    public GrupoSanguineo getGrupoSanguineo() {
+    	return GrupoSanguineo.toEnum(grupoSanguineo);
+    }
+    
+    public void setEscolaridade(GrupoSanguineo escolaridade) {
+    	this.escolaridade = escolaridade.getCod();
+    }
+    
+    public Escolaridade getEscolaridade() {
+    	return Escolaridade.toEnum(escolaridade);
+    }
 }

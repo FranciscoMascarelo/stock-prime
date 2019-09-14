@@ -29,10 +29,10 @@ import lombok.ToString;
 public class Pessoa extends PersistentEntity{
 	private static final long serialVersionUID = 1L;
 	private String name;
-	//faz com que omite a busca de produtos pois ja foi serializado do lado de categorias
+	//faz com que omite a busca de pessoas pois ja foi serializado do lado de enderecos
 	@JsonIgnore
 	@ManyToMany
-	//Cria tabela auxiliar para fazer ligação de muitos para muitos entre categorias e produtos
+	//Cria tabela auxiliar para fazer ligação de muitos para muitos entre pessoa e endereço
 	@JoinTable(name = "pessoa_endereco",
 		joinColumns = @JoinColumn(name = "pessoa_id"),
 		inverseJoinColumns = @JoinColumn(name = "endereco_id" )

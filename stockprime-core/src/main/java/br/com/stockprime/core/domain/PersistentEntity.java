@@ -30,21 +30,21 @@ public class PersistentEntity implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
-  @Column(name = "id", updatable = false, nullable = false)
+  @Column(updatable = false, nullable = false)
   private Long id;
 
   @CreationTimestamp
   @CreatedDate
-  @Column(name = "CREATED_DATE", updatable = false, nullable = false)
+  @Column(updatable = false, nullable = false)
   private LocalDateTime createdDate;
 
   @UpdateTimestamp
   @LastModifiedDate
-  @Column(name = "LAST_MODIFIED_DATE", nullable = false)
+  @Column(nullable = false)
   private LocalDateTime lastModifiedDate;
 
   @Version
-  @Column(name = "VERSION", nullable = false)
+  @Column(nullable = false)
   private Integer version;
 
   @Transient
