@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import br.com.stockprime.core.domain.enums.CepEstado;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,16 +20,21 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Profissao extends PersistentEntity{
+public class CepPais extends PersistentEntity{
 	
 	private static final long serialVersionUID = 1L;
 
-	private String nomeProfissao;
+	private String nomePais;
 
-    private String descricaoProfissao;
+    private String nacionalidadePais;
+
+    private String isoPais3;
+
+    private String isoPais;
+
+    private Integer numeroPais;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "profissao")
-    private Set<PessoaFisica> ggPessoaFisicas = new HashSet<PessoaFisica>();
-    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cepPais")
+    private Set<CepEstado> cepEstados = new HashSet<CepEstado>();
 
 }

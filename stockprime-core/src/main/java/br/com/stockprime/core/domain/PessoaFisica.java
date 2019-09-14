@@ -3,6 +3,9 @@ package br.com.stockprime.core.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import br.com.stockprime.core.domain.enums.Escolaridade;
 import br.com.stockprime.core.domain.enums.EstadoCivil;
@@ -29,7 +32,9 @@ public class PessoaFisica extends Pessoa {
     private String numeroCpf;
 
     private Integer sexo;
-
+    
+    private String possuiDeficiencia;
+    
     private Integer tipoDeficiencia;
 
     private Integer estadoCivil;
@@ -38,8 +43,8 @@ public class PessoaFisica extends Pessoa {
     
     private Integer escolaridade;
     
-    private String possuiDeficiencia;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profissao_id")
     private Profissao profissao;
 
     //TODO @Hiago pesquisar sobre tabela de cep dos correios, verifica se tem api.
